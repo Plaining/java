@@ -1,0 +1,11 @@
+Arrays类
+equals();比较两个数组是否相等：一元素个数相等，二对应位置的元素相等
+fill();以某个值填充整个数组
+sort();对数组进行升序排序
+binarySearch();用于在已经排序的数组中查找元素
+asList();接受任意数组为参数，将其转变为List容器
+arraycopy(array1,offset1,array2,offset2,n)array1表示原数组;offset1表示从原数组中的什么位置
+			开始复制的偏移量;array2表示目标数组;offset2表示从目标数组的什么位置开始复制的偏移量，n是
+			需要复制的元素个数
+int compare(Object obj1,Object obj2);对两个对象比较，如果obj1位于obj2的前面，返回负值，如果相
+			同，返回0，如果obj1位于obj2的后面，返回正值。

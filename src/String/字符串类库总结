@@ -1,0 +1,77 @@
+String类用于比较两个字符串，查找和抽取串中字符或字串，字符串与其他类型的转换，一旦定义，不能修改
+StringBuffer类用于内容可以修改的字符串，可以将其他类型的数据增加、插入到字符串中，也可以翻转字符串中原来的内容。
+1：生成字符串
+	"";
+	new;
+	+;
+	构造函数:
+		public StringBuffer(); 创建一个空的StringBuffer对象
+		public StringBuffer(int length);  创建一个大小为length的StringBuffer对象
+		public StringBuffer(String str);  按str创建一个动态可变的StringBuffer对象
+2：访问字符串
+	String类的常见方法
+	public int length(); 返回字符串的长度
+	public char charAt(int index); 获取字符串常量中的一个字符，参数index指定从字符串中返回第几个字符。
+	public void getChars(int srcBegin,int srcEnd,char dst[],int dstBegin); 
+							用来从字符串中截取一段字符串并转换为字符数组。参数srcBegin为截取的起始点，
+							srcEnd为截取的结束点，dst为目标字符数组，dstBegin指定将截取的字符串放在
+							字符数组的什么位置
+	public int indexOf(char ch); 返回字符ch在字符串常量中从左到右第一次出现的位置，如果字符串常量中
+							没有该字符，返回-1
+	public int indexOf(String str); 该重载方法返回字符串常量str在当前字符串常量中从左到右第一次出现的
+							位置，如果当前字符串常量中不包含字符串常量str,则返回-1
+	public int indexOf(String str,int fromIndex); 此重载方法新增fromIndex作为起始位置
+	public int lastIndexOf(char ch); 同上，但是从右开始
+	public int lastIndexOf(char ch,int fromIndex);
+	public int lastIndexOf(String ch);
+	public int lastIndexOf(String ch,int fromIndex);
+	public int compartTo(String anotherString); 比较字符串常量的大小，如果一样返回0，如果当前字符
+							串大，返回值大于0；如果当前字符串小，返回值小于0
+	public String concat(String str); 将参数字符串str接在当前字符串的后面，生成一个新的字符串常量
+	public static String valueOf(Boolean b);
+	public static String valueOf(char b);
+	public static String valueOf(int b);
+	public static String valueOf(long b);
+	public static String valueOf(float b);
+	public static String valueOf(double b);将六种类型的变量转换为String的对象
+	StringBuffer类的常见方法
+	public String toString(); 将StringBuffer类对象转换为String类对象并返回
+	public StringBuffer append(Boolean b) ;
+	public StringBuffer append(int b) ;
+	public StringBuffer append(float b) ;
+	public StringBuffer append(long b) ;
+	public StringBuffer append(double b) ;
+	public StringBuffer append(char b) ;将六种类型的变量追加到StringBuffer类的对象后面，如果操作
+							后的字符超过已分配的缓冲区，则系统会自动为它分配额外的空间
+	public StringBuffer insert(int offset,Boolean b);
+	public StringBuffer insert(int offset,int b);
+	public StringBuffer insert(int offset,float b);
+	public StringBuffer insert(int offset,long b);
+	public StringBuffer insert(int offset,double b);
+	public StringBuffer insert(int offset,char b); 将六种类型的变量插入到StringBuffer对象中
+							的第offset个位置，如果操作后的字符超过已分配的缓冲区，则系统会自动为它分配
+							额外的空间
+	public int length(); 返回当前缓冲区的字符个数
+	public int capacity(); 返回字符串缓冲区的容量
+	public void setCharAt(int index,char ch) throws StringIndexOutOfBoundsException;
+							将StringBuffer对象的index位置上的字符修改为参数ch所指定的字符。
+	public void setLength(int newlength) throws StringIndexOutOfBoundsException;
+							修改StringBuffer对象的长度，如果小于原来的长度，则新长度以外的字符串丢弃
+3：修改字符串
+	String类
+	toLowerCase()和toUpperCase(); 将所有字符串转变为大写或者小写
+	replace(char fChar,char sChar); 用于将给定字符串中出现的所有特定字符fChar替换成sChar
+	substring(int beginIndex)和substring(int beginIndex,int endIndex); 返回给定字符串中指定
+							范围内的字符串
+	concat(String anotherStr);用于将字符串与给定字符串串联起来
+4：其他操作
+	startsWith(String preString)和endWith(String endString); 字符串的起始与给定的字符串是否相同
+	startsWith(String preString,int offserInd);用于判断给定字符串中从offsetInd位置开始是否存在于
+							preString相同的字串
+	equals()和equalsIgnoreCase();判断字符串的值是否相同，前者区分大小写
+	compareTo(String anotherString)和compareToIgnoreCase(String anotherString) 比较大小，
+							相同返回0
+	regionMatches(Boolean ignoreCase,int toffset,String another,int offset,int len)和
+	regionMatches(int toffset,String another,int offset,int len);
+							比较当前字符串和参数字符串中指定区域的子串是否相同。
+	trim();用于删除给定字符串首位的白空格
