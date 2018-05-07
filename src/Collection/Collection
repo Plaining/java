@@ -1,0 +1,49 @@
+——敬皇天后土，愿诸天神魔，善待我袍泽灵
+Collection类的方法:
+单元素添加、删除操作
+Boolean add(Object o);将对象添加给容器
+Boolean remove(Object o);如果容器中有与o相匹配的对象，则删除对象o
+查询操作
+int size();返回当前容器中元素的个数
+Boolean isEmpty();判断容器中是否有任何元素
+Boolean contains(Object o);查找容器中是否含有对象o
+Iterator iterator();返回一个迭代器，用来访问容器中的各个元素
+组操作：作用于元素组或者整个容器
+Boolean containsAll(Collection c);查找容器中是否含有容器c中所有元素
+Boolean addAll(Collection c);将容器c中所有元素添加给改容器
+void clear();删除容器中所有元素
+void removeAll(Collection c);从容器中删除容器c中的所有元素
+void retainAll(Collection c);从容器中删除容器c中不包含的元素
+Collection转换为Object数组
+Object[] toArray();返回一个内含容器中所有元素的array
+Object[] toArray(Object[] a);返回一个内含容器中所有元素的array,运行期返回的array和参数a的类型相同，需要转换为正确类型
+
+List接口继承了Collection接口，定义一个允许重复项的有序集合。添加了面向位置的操作
+List中搜索元素可以从列表的头部或者尾部开始
+面向位置的操作：(插入某个元素或者Collection的功能)
+void add(int index,Object obj);在指定位置index上添加obj
+Boolean addAll(int index,Collection c);将容器c的所有元素添加在指定位置index
+Object get(int index);返回List中指定位置的元素
+int indexOf(Object o);返回第一个出现元素o的位置，否则返回-1
+int lastIndexOf(Object o);返回最后一个出现元素o的位置，否则返回-1
+Object remove(int index);删除指定位置上的元素
+Object set(int index,Object obj);用元素obj取代index位置上的元素，并返回旧的元素
+List接口不但能以位置序列迭代遍历整个列表，而且还能处理集合的子集
+ListIterator listIterator();返回一个列表迭代器，用来访问列表中的元素
+ListIterator listIterator(int index);返回一个列表迭代器，用来从指定index位置开始访问列表中的元素
+List subList(int beginIndex,int endIndex);返回从指定beginIndex(包含)到endIndex(不包含)位置范围内各个元素的列表
+						范围内各个元素的列表视图：对子列表的更改对底层List也有影响。
+
+两种list实现：ArrayList和LinkedList
+LinkedList类:增加了一些处理列表两端元素的方法
+void addFirst(Object obj);将对象obj添加到列表的开头
+void addLast(Object obj);将对象obj添加到列表的结尾
+Object getFirst();返回列表开头的元素
+Object getLast();返回列表结尾的元素
+Object removeFirst();删除并且返回列表开头的元素
+Object removeLast();删除并且返回列表结尾的元素
+LinkedList();构建一个空的链接列表
+LinkedList(Collection c);构建一个链接列表，并且添加集合c的所有元素
+Arraylist类：封装了一个动态再分配的Object[]数组，每个ArrayList对象有一个数值，这个数值用来表示存储列表中元素的数组的容量。
+void ensureCapacity(int minCapacity)将ArrayList对象容量增加minCapacity
+void trimToSize();整理ArrayList对象容量为列表当前大小;程序可以使用这个操作减少ArrayList对象存储空间
