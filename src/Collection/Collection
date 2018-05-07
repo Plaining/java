@@ -72,4 +72,4 @@ Set接口集成Collection接口，而且它不允许集合中存在重复项，每个具体的Set实现类依赖
 	HashSet();构建一个空的哈希表
 	HashSet(Collection c);构建一个哈希表，并添加集合c中所有元素
 	HashSet(int initCapacity);构建一个拥有特定容量的空哈希表
-	HashSet(int initCapacity,float loadFactor);构建一个拥有特定容量和加载因子的空哈希表。L
+	HashSet(int initCapacity,float loadFactor);构建一个拥有特定容量和加载因子的空哈希表。
