@@ -47,3 +47,29 @@ LinkedList(Collection c);构建一个链接列表，并且添加集合c的所有元素
 Arraylist类：封装了一个动态再分配的Object[]数组，每个ArrayList对象有一个数值，这个数值用来表示存储列表中元素的数组的容量。
 void ensureCapacity(int minCapacity)将ArrayList对象容量增加minCapacity
 void trimToSize();整理ArrayList对象容量为列表当前大小;程序可以使用这个操作减少ArrayList对象存储空间
+
+Set接口集成Collection接口，而且它不允许集合中存在重复项，每个具体的Set实现类依赖添加对象的equals()方法来检查唯一性，Set接
+口没有引入新方法，因此Set就是一个Collection，只不过行为不同
+1、SortedSet接口
+	保持元素的有序顺序，将元素添加到SortedSet类必须实现Comparable接口，否则必须为它的构造函数提供一个Comparator接口的实
+	现。TreeSet类是它的唯一一个实现。
+	集合必须包含唯一的项，如果添加元素时比较两个元素导致了“0”返回值（通过Comparable的compareTo()方法或者Comparator的
+	compare()方法），那么新元素就没有添加进去；如果两个元素相等，还比较好处理；但是如果二者不想等，就应该修改比较方法，使比较
+	方法与equals()的效果一致。
+	SortedSet类的方法：
+		Comparator comparator();返回对元素进行排序时使用的比较器，如果使用Comparable接口的compareTo()方法对元素进行比
+		较，则返回null;
+		Object first();返回有序集合中第一个（最低）元素
+		Object last();返回有序集合中最后一个（最高）元素
+		SortedSet subSet(Object beginElement,Object endElement);返回从beginElement(包括)至endElement(不包
+		括)范围内元素的SortedSet视图（子集）
+		SortedSet headSet(Object endElement);返回SortedSet的一个试图（子集）,其内各元素都小于endElement
+		SortedSet tailSet(Object beginElement);返回SortedSet的一个试图（子集）,其内各元素都大于或者等于beginElement
+2、HashSet类和TreeSet类
+	创建要添加到HashSet中的类时，要记住编写覆盖HashCode()和equals()的方法
+	1、HashSet类
+	HashSet是为快速查找而设计的Set,存入HashSet的对象必须定义hashCode()。
+	HashSet();构建一个空的哈希表
+	HashSet(Collection c);构建一个哈希表，并添加集合c中所有元素
+	HashSet(int initCapacity);构建一个拥有特定容量的空哈希表
+	HashSet(int initCapacity,float loadFactor);构建一个拥有特定容量和加载因子的空哈希表。L
