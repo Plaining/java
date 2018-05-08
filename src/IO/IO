@@ -1,0 +1,14 @@
+有InputStream/OutputStream和Reader/Writer两部分类。
+字节流和字字符流处理
+1、字节流：
+1.1、基本字节输入流InputStream
+该类定义的所有方法遇到错误时都会引发IOException异常。
+方法：
+public abstract int read() throws IOException;读取一个字节，返回值为所读的字节的整数表示。如果遇到字节流的末尾，
+					返回-1。
+public int read(byte[] b) throws IOException;读取多个字节，放到字节数组b中，通常读取的字节数量为b的长度，返回
+					值为实际读取的字节的数量
+public int read(byte[] b,int offset,int length) throws IOException;该方法从输入流中读出最多length个字
+					节，存入b数组，从offset位置开始存入，返回实际读入字节数。
+public int available() throws IOException;返回值为流中尚未读取的字节的数量
+public long skip(long n) throws IOException;读取针跳过n个字节不读，返回值为实际跳过的字节数量
