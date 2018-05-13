@@ -1,0 +1,48 @@
+	Servlet是运行在服务器端的Java应用程序，由Servlet容器对其进行管理，当用户对容器发送HTTP请求时，
+容器将通知对应的Servlet对象进行处理，完成用户和程序之间的交互。
+1、Servlet接口
+	javax.servlet.Servlet接口
+	方法：
+	public void init(ServletConfig config);Servlet实例化后，Servlet容器调用此方法完成初始化
+	public void service(ServletRequest request,ServletResponse response);此方法用于处
+							理客户端请求
+	public void destroy();当Servlet对象应该从Servlet容器中移除时，容器调用该方法，以释放资源
+	public ServletConfig getServletConfig();此方法用于获取Servlet对象的配置信息，返回
+							ServletConfig对象
+	public String getServletInfo();此方法返回有关Servlet的信息，它是纯文本格式的字符串，如作者版本
+2、GenericServlet抽象类
+	编写Servlet对象时，必须实现javax.servlet.Servlet接口，该接口有五个方法，不方便。
+	javax.servlet.GenericServlet类简化了该操作，该抽象类实现了Servlet接口和ServletConfig接口，
+	对service()外的其他方法进行了实现，可以通过继承该方法简化代码。
+3、HttpServlet抽象类
+		该类是GenericServlet类的子类。仍是抽象类，但是对service()方法进行了实现，针对HTTP1.1中定义的
+	7种请求类型提供了相应的方法，分别是doGet(),doPost(),doPut(),doDelete(),doHead(),doTrace(),
+	doOptions()方法。对后两种方法进行简单实现外，HttpServlet类并没有对其他方法进行实现。
+4、HttpServletRequest接口
+		该接口位于javax.servlet.http包中，继承了javax.servlet.ServletRequest接口。
+	方法：
+	public String getContextPath();返回请求的上下文路径，此路径以“/”开关
+	public Cookie[] getCookies();返回请求中发送的所有cookie对象，返回值为Cookie数组（cookie是在浏览器端）
+	public String getMethod();返回请求所使用的HTTP类型，如GET，POST等
+	public String getQueryString();返回请求中参数的字符串形式，如请求“MyServlet?username=mr”,返回
+							值“username=mr”
+	public String getRequestURI();返回主机名到请求参数之间部分的字符串形式
+	public StringBuffer getRequestURL();返回请求的URL,此URL中不包含请求的参数，返回值为StringBuffer
+	public String getServletPath();返回请求URI中Servlet路径的字符串，不包含请求中的参数信息
+	Public HttpSession getSession();返回与请求关联的HttpSession对象。
+5、HttpServletResponse接口
+	HttpServletResponse接口位于Javax.servlet.http包中，它继承了javax.servlet.ServletResponse接口
+	方法：
+	public void addCookie(Cookie cookie);向客户端写入Cookie信息
+	public void sendError(int src);发送一个错误状态码为sc的错误相应到客户端
+	public void sendError(int src,String msg);发送一个包含错误状态码以及错误信息的响应到客户端，参数为sc
+							为错误状态码，参数msg为错误信息
+	public void sendRedirect(String location);使用客户端重定向到新的URL，参数Location为新的地址。
+6、ServletConfig接口
+	该接口位于javax.servlet包中，用于封装Servlet的初始化信息，在Servlet初始化期间被传递，每一个servlet都有
+	且仅有一个ServletConfig对象。
+	方法：
+	public String getInitParameter(String name);此方法返回String类型名称为name的初始化参数值
+	public Enumeration getInitParameterNames();获取所有初始化参数名的枚举集合 
+	public ServletContext getServletContext();用于获取Servlet上下文信息
+	public String getServletName();返回Servlet对象的实例名
