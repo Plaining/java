@@ -2,7 +2,7 @@
 <web-app>
     <servlet>
         <servlet-name>MyServlet</servlet-name>
-        <servlet-class>Example.servlet.MyServlet</servlet-class>
+        <servlet-class>Example.Servlet.MyServlet</servlet-class>
     </servlet>
  
     <servlet-mapping>

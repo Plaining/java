@@ -31,7 +31,7 @@ public class CharacterEncodingFilter implements Filter {
 	}
 
 	@Override
-	public void init(FilterConfig arg0) throws ServletException {
+	public void init(FilterConfig filterConfig) throws ServletException {
 		// TODO Auto-generated method stub
 		this.filterConfig = filterConfig;
 		this.encoding = filterConfig.getInitParameter(encoding);
