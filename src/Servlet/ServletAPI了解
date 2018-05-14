@@ -46,3 +46,6 @@
 	public Enumeration getInitParameterNames();获取所有初始化参数名的枚举集合 
 	public ServletContext getServletContext();用于获取Servlet上下文信息
 	public String getServletName();返回Servlet对象的实例名
+	
+	
+ServletDispatcher!!!
