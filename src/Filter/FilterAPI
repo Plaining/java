@@ -1,0 +1,31 @@
+	Servlet过滤器是客户端与目标资源间的中间件组建，用于拦截客户端的请求和相应信息。
+	有三个接口：Filter接口，FilterChain接口，FilterConfig接口
+Filter接口：定义一个过滤器对象需要实现此接口
+	public void init(FilterConfig filterConfig)初始化
+	public void doFilter(ServletRequest request,ServletResponse response,FilterChain chain)
+						当请求及相应交给过滤器时，过滤器调用此方法进行过滤处理
+	public void destroy()在过滤器生命周期结束时调用该方法，释放过滤器占用的资源
+FilterChain接口：由容器实现，只有一个方法
+	public void doFilter(ServletRequest request,ServletResponse response);用于将过滤器处理的请求或者
+						相应传递给下一个过滤器对象
+	eg:chain.doFilter(request,response);//传递给下一个过滤器
+FilterConfig接口：
+	public String getFilterName() 返回过滤器名称
+	public String getInitParameter(String name) 返回初始化名称为name的参数值
+	public Enumeration getInitparameterNames() 返回所有初始化参数名的枚举集合
+	public ServletContext getServletContext() 返回Servlet的上下文对象
+配置过滤器
+	1、生命过滤器对象
+	web.xml中通过<filter>标签声明一个过滤器对象，在此标签下包含三个常用子元素
+	<filter-name>过滤器名称
+	<filter-class>过滤器完整位置
+	<init-param>过滤器初始化参数，包含两个常用子元素：<param-name><param-value>
+	2、映射过滤器
+	web.xml使用<filter-mapping>标签进行配置
+	<filter-name>指定过滤器的名称，此名称与<filter>标签中的<filter-name>相对应
+	<url-pattern>指定过滤器关联的url样式，设置为“/*”为关联所有的URL
+	<dispatcher>指定过滤器对应的请求方式，其可选值及使用说明：
+		REQUEST:当客户端直接请求时，通过滤器进行处理
+		INCLUDE:当客户端通过RequestDispatcher对象的include()方法请求时，通过过滤器处理
+		FORWARD:当客户端通过RequestDispatcher对象的forward()方法请求时，通过过滤器处理
+		ERROR:当声明式异常产生时，通过过滤器进行处理
